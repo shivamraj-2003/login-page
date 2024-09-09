@@ -11,28 +11,21 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* Ensure body takes the full height of the viewport */
 }
 
 .main {
     display: flex;
     justify-content: space-between;
-    /* Create space between the divs */
     width: 100%;
-    /* Full width of the container */
 }
 
 .first,
 .img2 {
     width: 100%;
-    /* Each div takes up 50% of the main div */
     box-sizing: border-box;
-    /* Ensures padding is included in the width */
     padding: 0 10px;
-    /* Adjust the space inside the divs */
 }
 
-/* Optional: Remove padding/margin collapse */
 .img2 {
     height: 100vh;
     border-radius: 4%;
@@ -95,7 +88,6 @@ body {
     align-items: center;
     justify-content: center;
     padding-top: 100px;
-    /* Full height of the viewport */
     text-align: center;
 }
 
@@ -110,7 +102,6 @@ h2 {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    /* Ensures inputs take the full width of the form */
 }
 
 .un,
@@ -122,15 +113,12 @@ h2 {
     border: 2px solid #ccc;
     border-radius: 5px;
     transition: border-color 0.3s;
-    /* Smooth transition for border color */
 }
 
 .un:focus,
 .pw:focus {
     border-color: green;
-    /* Change border color to green on focus */
     outline: none;
-    /* Remove default outline if desired */
 }
 
 
@@ -175,28 +163,14 @@ label {
 
 
 
-/* Scale the default checkbox */
 .in {
     width: 14px;
-    /* Adjust the width as needed */
     height: 14px;
-    /* Adjust the height as needed */
     transform: scale(1.5);
-    /* Increase size by 1.5 times */
     cursor: pointer;
-    /* Change cursor to pointer */
     margin-right: 10px;
 
 }
-
-
-
-
-
-
-
-
-
 
 .psw {
     display: inline-block;
@@ -318,7 +292,6 @@ li::before {
 
 
 
-/* Hide the default checkbox */
 input[type="checkbox"].in {
     width: 0;
     height: 0;
@@ -326,12 +299,10 @@ input[type="checkbox"].in {
     position: absolute;
 }
 
-/* Custom checkbox styling */
 label {
     display: flex;
     align-items: center;
     font-size: 15px;
-    /* Adjust text size */
     margin-top: 10px;
     cursor: pointer;
     width: 80%;
@@ -339,49 +310,32 @@ label {
 
 .checkbox-custom {
     width: 24px;
-    /* Size of the custom checkbox */
     height: 24px;
-    /* Size of the custom checkbox */
     border-radius: 4px;
-    /* Rounded corners */
     display: inline-block;
     position: relative;
     background-color: transparent;
-    /* Background color when not checked */
     border: 2px solid #ccc;
-    /* Default border color */
     margin-right: 10px;
     transition: background-color 0.3s, border-color 0.3s;
-    /* Smooth transitions */
 }
 
-/* Show green checkmark when checkbox is checked */
 input[type="checkbox"].in:checked+.checkbox-custom {
     background-color: white;
-    /* Background color when checked */
     border-color: green;
-    /* Border color when checked */
 }
 
 input[type="checkbox"].in:checked+.checkbox-custom::after {
     content: '';
     position: absolute;
     left: 50%;
-    /* Center horizontally */
     top: 50%;
-    /* Center vertically */
     width: 8px;
-    /* Size of the tick */
     height: 16px;
-    /* Size of the tick */
     border: solid green;
-    /* Tick color */
     border-width: 0 2px 2px 0;
-    /* Tick border width */
     transform: rotate(45deg);
-    /* Rotate to form checkmark */
     transform: translate(-50%, -50%) rotate(45deg);
-    /* Center the tick and rotate */
 }
 
 
@@ -389,11 +343,16 @@ input[type="checkbox"].in:checked+.checkbox-custom::after {
     position: absolute;
     top: 50%;
     left: 50%;
+    opacity: 1;
     transform: translate(-50%, -50%) rotate(360deg);
     transition: all 1s ease-in-out;
     width: 100px;
     height: auto;
-    z-index: 10;
+    z-index: 20;
+}
+
+#logo {
+    display: none;
 }
 
 .hide-content {
@@ -408,7 +367,7 @@ input[type="checkbox"].in:checked+.checkbox-custom::after {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 5;
+    z-index: 1;
     transition: all 2s ease-in-out;
 }
 
@@ -416,13 +375,11 @@ input[type="checkbox"].in:checked+.checkbox-custom::after {
     background-color: white;
     border-radius: 50%;
     padding: 20px;
-    z-index: 15;
-    /* Ensure this is higher than the fullscreen image */
+    z-index: 2;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0;
-    /* Start hidden */
+    opacity: 1;
     transition: opacity 1s ease-in-out;
 }

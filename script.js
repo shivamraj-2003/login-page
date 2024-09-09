@@ -21,24 +21,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const mainContent = document.querySelector('.first');
 
     loginForm.addEventListener('submit', function (e) {
-        e.preventDefault(); // Prevent actual form submission
-
-        // Move logo to the center
+        e.preventDefault();
+        logo.style.display = 'block';
         logo.classList.add('logo-centered');
 
-        // Hide other content
         setTimeout(() => {
             mainContent.classList.add('hide-content');
             img2.classList.add('fullscreen-img2');
-        }, 1000); // Delay to allow the logo to move first
+        }, 1000);
 
-        // Show the logo with white circle after the image expands
         setTimeout(() => {
             logo.classList.add('white-circle');
-            logo.style.opacity = '1'; // Make sure the logo is visible
-        }, 3000); // Adjust timing as needed
+            logo.style.opacity = '1';
+        }, 3000);
 
-        // Reload the page after the animation is complete
         setTimeout(() => {
             location.reload();
         }, 5000);
