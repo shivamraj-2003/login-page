@@ -1,5 +1,5 @@
+/* Base styles */
 .container {
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -7,7 +7,7 @@
 }
 
 body {
-    margin: 40px;
+    margin: 60px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -43,8 +43,6 @@ body {
     line-height: 1;
     font-weight: 500;
 }
-
-
 
 .left {
     display: flex;
@@ -85,7 +83,6 @@ body {
     text-align: center;
 }
 
-
 h1,
 h2 {
     margin: 10px 0;
@@ -114,7 +111,6 @@ h2 {
     border-color: green;
     outline: none;
 }
-
 
 .wn {
     font-size: 40px;
@@ -155,15 +151,12 @@ label {
     background-color: rgb(24, 119, 11);
 }
 
-
-
 .in {
     width: 14px;
     height: 14px;
     transform: scale(1.5);
     cursor: pointer;
     margin-right: 10px;
-
 }
 
 .psw {
@@ -177,7 +170,6 @@ label {
 
 .psw:hover {
     text-decoration: underline;
-
 }
 
 .footer {
@@ -202,8 +194,6 @@ label {
     gap: 20px;
 }
 
-
-
 .text {
     font-size: 10px;
     color: grey;
@@ -213,10 +203,6 @@ label {
     font-size: 10px;
     color: green;
 }
-
-
-
-
 
 .enroll-btn {
     padding: 10px 20px;
@@ -256,8 +242,6 @@ li::before {
     line-height: 1;
 }
 
-
-
 .enroll-row {
     position: relative;
 }
@@ -282,9 +266,6 @@ li::before {
     font-size: 18px;
     color: #fff;
 }
-
-
-
 
 input[type="checkbox"].in {
     width: 0;
@@ -334,8 +315,8 @@ input[type="checkbox"].in:checked+.checkbox-custom::after {
 
 #logo {
     position: absolute;
-    top: 42px;
-    left: 8px;
+    top: 65px;
+    left: 20px;
     width: 60px;
     height: 40px;
     transition: all 1s ease-in-out;
@@ -344,9 +325,9 @@ input[type="checkbox"].in:checked+.checkbox-custom::after {
 
 @keyframes moveToCenter {
     0% {
-        top: 10px;
-        left: 10px;
-        transform: scale(1) rotate(0deg);
+        top: 42px;
+        left: 8px;
+        transform: scale(1) rotate(180deg);
     }
 
     100% {
@@ -360,21 +341,46 @@ input[type="checkbox"].in:checked+.checkbox-custom::after {
     animation: moveToCenter 1s ease-in-out forwards;
 }
 
-
 .hide-content {
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
 
-.fullscreen-img2 {
-    position: absolute;
-    top: 0;
-    left: 0;
+.img4 {
+    display: none;
     width: 100%;
-    height: 100%;
+    height: auto;
+}
+
+@keyframes zoomFromCenterWithMargin {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+        width: 50%;
+        height: 50%;
+        border-radius: 50%;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+        width: calc(100% - 40px);
+        height: calc(100% - 40px);
+        border-radius: 15px;
+    }
+}
+
+.fullscreen-img4 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
     object-fit: cover;
     z-index: 1;
-    transition: all 2s ease-in-out;
+    animation: zoomFromCenterWithMargin 2s ease-in-out forwards;
+    border-radius: 15px;
 }
 
 .white-circle {
@@ -388,4 +394,119 @@ input[type="checkbox"].in:checked+.checkbox-custom::after {
     transform: translate(-50%, -50%);
     opacity: 1;
     transition: opacity 1s ease-in-out;
+}
+
+/* Responsive for tablets and large screens (max-width: 1024px) */
+@media (max-width: 1024px) {
+
+    .container,
+    .main {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 5vw;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .btn,
+    .enroll-btn {
+        width: 100%;
+        padding: 10px 30px;
+        font-size: 1rem;
+    }
+
+    .img2 {
+        height: 80vh;
+        border-radius: 0;
+    }
+}
+
+/* Responsive for mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+
+    .container,
+    .main {
+        padding: 0 10px;
+    }
+
+    .img2 {
+        height: 60vh;
+    }
+
+    .reg1 {
+        font-size: 18px;
+    }
+
+    .reg2,
+    .tex {
+        font-size: 16px;
+    }
+
+    .enrollment-container {
+        width: 100%;
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 20px 0 0 0;
+    }
+
+    .enroll-btn {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 8px 20px;
+    }
+}
+
+/* Responsive for smaller mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+
+    .container,
+    .main {
+        flex-direction: column;
+    }
+
+    .first,
+    .img2 {
+        padding: 0;
+    }
+
+    .reg1 {
+        font-size: 16px;
+    }
+
+    .reg2,
+    .tex {
+        font-size: 14px;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .btn,
+    .enroll-btn {
+        padding: 8px 15px;
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .img2 {
+        height: 50vh;
+    }
+
+    .un,
+    .pw {
+        width: 100%;
+    }
 }

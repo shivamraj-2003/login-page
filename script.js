@@ -12,40 +12,53 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+    const enrollBtn = document.querySelector('.enroll-btn');
+    const enrollmentContainer = document.querySelector('.enrollment-container');
     const loginForm = document.getElementById('loginForm');
     const logo = document.getElementById('logo');
     const img2 = document.getElementById('img2');
+    const img4 = document.querySelector('.img4');
     const mainContent = document.querySelector('.first');
 
 
+    img4.style.display = 'none';
 
 
+    enrollBtn.addEventListener('mouseenter', function () {
+        enrollmentContainer.style.display = 'block';
+    });
+
+    enrollBtn.addEventListener('mouseleave', function () {
+        enrollmentContainer.style.display = 'none';
+    });
 
     loginForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        mainContent.classList.add('hide-content');
 
-        // Set the background color to white
+
+        mainContent.classList.add('hide-content');
+        img2.classList.add('hide-content');
+
         document.body.style.backgroundColor = 'white';
 
-        // Add the class to animate the logo to the center
         logo.classList.add('animate');
+
         setTimeout(() => {
             logo.style.opacity = '0';
         }, 2000);
+
         setTimeout(() => {
-            img2.classList.add('fullscreen-img2');
+            img4.classList.add('fullscreen-img4');
+            img4.style.display = 'block';
         }, 3000);
+
         setTimeout(() => {
             logo.classList.add('white-circle');
             logo.style.opacity = '1';
-        }, 4000);
-        setTimeout(() => {
-            logo.style.top = '20px';
-            logo.style.left = '20px';
-            logo.classList.remove('animate');
-            mainContent.classList.remove('hide-content');
-            img2.classList.remove('fullscreen-img2');
         }, 5000);
+
+        setTimeout(() => {
+            window.location.reload();
+        }, 7000);
     });
 });
