@@ -32,7 +32,7 @@ body {
 }
 
 .reg1 {
-    margin: 0;
+    margin: 0px;
     line-height: 1;
     font-size: 22px;
     font-weight: bold;
@@ -45,12 +45,6 @@ body {
 }
 
 
-
-.logo {
-    height: 40px;
-    width: 60px;
-    margin-right: 10px;
-}
 
 .left {
     display: flex;
@@ -338,22 +332,34 @@ input[type="checkbox"].in:checked+.checkbox-custom::after {
     transform: translate(-50%, -50%) rotate(45deg);
 }
 
-
-.logo-centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    opacity: 1;
-    transform: translate(-50%, -50%) rotate(360deg);
-    transition: all 1s ease-in-out;
-    width: 100px;
-    height: auto;
-    z-index: 20;
-}
-
 #logo {
-    display: none;
+    position: absolute;
+    top: 42px;
+    left: 8px;
+    width: 60px;
+    height: 40px;
+    transition: all 1s ease-in-out;
+    z-index: 10;
 }
+
+@keyframes moveToCenter {
+    0% {
+        top: 10px;
+        left: 10px;
+        transform: scale(1) rotate(0deg);
+    }
+
+    100% {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(2) rotate(360deg);
+    }
+}
+
+.animate {
+    animation: moveToCenter 1s ease-in-out forwards;
+}
+
 
 .hide-content {
     opacity: 0;

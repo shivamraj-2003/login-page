@@ -11,32 +11,41 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
     const loginForm = document.getElementById('loginForm');
     const logo = document.getElementById('logo');
     const img2 = document.getElementById('img2');
     const mainContent = document.querySelector('.first');
 
+
+
+
+
     loginForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        logo.style.display = 'block';
-        logo.classList.add('logo-centered');
+        mainContent.classList.add('hide-content');
 
+        // Set the background color to white
+        document.body.style.backgroundColor = 'white';
+
+        // Add the class to animate the logo to the center
+        logo.classList.add('animate');
         setTimeout(() => {
-            mainContent.classList.add('hide-content');
+            logo.style.opacity = '0';
+        }, 2000);
+        setTimeout(() => {
             img2.classList.add('fullscreen-img2');
-        }, 1000);
-
+        }, 3000);
         setTimeout(() => {
             logo.classList.add('white-circle');
             logo.style.opacity = '1';
-        }, 3000);
-
+        }, 4000);
         setTimeout(() => {
-            location.reload();
+            logo.style.top = '20px';
+            logo.style.left = '20px';
+            logo.classList.remove('animate');
+            mainContent.classList.remove('hide-content');
+            img2.classList.remove('fullscreen-img2');
         }, 5000);
     });
 });
